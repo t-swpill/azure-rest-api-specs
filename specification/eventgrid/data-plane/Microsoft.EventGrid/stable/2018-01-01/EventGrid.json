@@ -74,7 +74,7 @@
     "/api/events?overload=cloudEvent": {
       "post": {
         "consumes": [
-          "application/cloudevent-batch+json; charset=utf-8"
+          "application/cloudevents-batch+json; charset=utf-8"
         ],
         "tags": [
           "Events"
@@ -117,7 +117,7 @@
   "definitions": {
     "EventGridEvent": {
       "type": "object",
-      "description": "Properties of an event published to an Event Grid topic using Event Grid Schema.",
+      "description": "Properties of an event published to an Event Grid topic using the EventGrid Schema.",
       "required": [
         "id",
         "subject",
@@ -165,7 +165,7 @@
     },
     "CloudEventEvent": {
       "type": "object",
-      "description": "Properties of an event published to an Event Grid topic using CloudEvent 1.0 Schema.",
+      "description": "Properties of an event published to an Event Grid topic using the CloudEvent 1.0 Schema.",
       "required": [
         "type",
         "specversion",
