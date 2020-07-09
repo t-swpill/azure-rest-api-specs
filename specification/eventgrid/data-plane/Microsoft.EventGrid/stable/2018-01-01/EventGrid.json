@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "2018-01-01",
-    "title": "GeneratedEventGridClient",
-    "description": "Azure Generated EventGrid Client"
+    "title": "EventGridPublisherClient",
+    "description": "Azure EventGrid Publisher Client"
   },
   "x-ms-parameterized-host": {
     "hostTemplate": "{topicHostname}",
