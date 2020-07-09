@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "2018-01-01",
-    "title": "EventGridClient",
-    "description": "Azure EventGrid Client"
+    "title": "EventGridPublisherClient",
+    "description": "Azure EventGrid Publisher Client"
   },
   "x-ms-parameterized-host": {
     "hostTemplate": "{topicHostname}",
@@ -24,10 +24,12 @@
     "https"
   ],
   "consumes": [
-    "application/json"
+    "application/json",
+    "application/cloudevents-batch+json; charset=utf-8"
   ],
   "produces": [
-    "application/json"
+    "application/json",
+    "application/cloudevents-batch+json; charset=utf-8"
   ],
   "paths": {
     "/api/events": {
@@ -36,7 +38,7 @@
           "Events"
         ],
         "description": "Publishes a batch of events to an Azure Event Grid topic.",
-        "operationId": "PublishEvents",
+        "operationId": "PublishEventBatch",
         "parameters": [
           {
             "name": "events",
@@ -47,6 +49,18 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/EventGridEvent"
+              }
+            }
+          },
+          {
+            "name": "events",
+            "description": "An array of events to be published to Event Grid.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CloudEvent"
               }
             }
           },
@@ -65,48 +79,7 @@
         "x-ms-examples": {
           "PublishEventsToEventGridTopic": {
             "$ref": "./examples/PublishEventsToEventGridTopic.json"
-          }
-        }
-      }
-    }
-  },
-  "x-ms-paths": {
-    "/api/events?overload=cloudEvent": {
-      "post": {
-        "consumes": [
-          "application/cloudevents-batch+json; charset=utf-8"
-        ],
-        "tags": [
-          "Events"
-        ],
-        "description": "Publishes a batch of cloud events to an Azure Event Grid topic.",
-        "operationId": "PublishCloudEventEvents",
-        "parameters": [
-          {
-            "name": "events",
-            "description": "An array of cloud events to be published to Event Grid.",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/CloudEventEvent"
-              }
-            }
           },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "default": {
-            "description": "*** Error Responses: ***\n\n * 400 Bad Request.\n\n * 500 Internal Server Error.\n\n * 429 Too Many Events\n\n * 404 Not Found."
-          }
-        },
-        "x-ms-examples": {
           "PublishEventsToEventGridTopicAsCloudEvents": {
             "$ref": "./examples/PublishEventsToEventGridTopicAsCloudEvents.json"
           }
