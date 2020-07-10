@@ -35,8 +35,8 @@
         "tags": [
           "Events"
         ],
-        "description": "Publishes a batch of events to an Azure Event Grid topic.",
-        "operationId": "PublishEvents",
+        "description": "Publishes a batch of Event Grid events to an Azure Event Grid topic.",
+        "operationId": "PublishEventGridEvents",
         "parameters": [
           {
             "name": "events",
