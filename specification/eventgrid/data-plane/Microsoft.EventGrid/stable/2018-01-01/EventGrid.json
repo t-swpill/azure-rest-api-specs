@@ -149,11 +149,6 @@
           "description": "Event data specific to the event type.",
           "type": "object"
         },
-        "data_base64": {
-          "description": "Event data specific to the event type.",
-          "type": "string",
-          "format": "byte"
-        },
         "eventType": {
           "description": "The type of the event that occurred.",
           "type": "string"
@@ -195,6 +190,11 @@
         "data": {
           "description": "Event data specific to the event type.",
           "type": "object"
+        },
+        "data_base64": {
+          "description": "Event data specific to the event type.",
+          "type": "string",
+          "format": "byte"
         },
         "type": {
           "description": "Type of event related to the originating occurrence.",
