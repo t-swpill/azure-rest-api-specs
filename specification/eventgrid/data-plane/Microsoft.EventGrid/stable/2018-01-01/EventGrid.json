@@ -149,6 +149,11 @@
           "description": "Event data specific to the event type.",
           "type": "object"
         },
+        "data_base64": {
+          "description": "Event data specific to the event type.",
+          "type": "string",
+          "format": "byte"
+        },
         "eventType": {
           "description": "The type of the event that occurred.",
           "type": "string"
@@ -215,7 +220,8 @@
         "subject": {
           "description": "This describes the subject of the event in the context of the event producer (identified by source).",
           "type": "string"
-        }
+        },
+        "additionalProperties": true
       }
     },
     "SubscriptionValidationEventData": {
