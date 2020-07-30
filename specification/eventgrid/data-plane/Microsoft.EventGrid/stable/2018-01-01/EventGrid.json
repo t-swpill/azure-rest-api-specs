@@ -220,9 +220,9 @@
         "subject": {
           "description": "This describes the subject of the event in the context of the event producer (identified by source).",
           "type": "string"
-        },
-        "additionalProperties": true
-      }
+        }
+      },
+      "additionalProperties": true
     },
     "SubscriptionValidationEventData": {
       "description": "Schema of the Data property of an EventGridEvent for a Microsoft.EventGrid.SubscriptionValidationEvent.",
